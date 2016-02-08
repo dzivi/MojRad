@@ -1,6 +1,7 @@
 package org.ivan.MojRad.Service;
 
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Response;
 
 import org.ivan.MojRad.DaoClasses.UserDAO;
 import org.ivan.MojRad.Exception.DataNotFoundException;
@@ -19,7 +20,6 @@ public class UserService {
 		return userRes;
 	
 	}
-	
 	
 	
 

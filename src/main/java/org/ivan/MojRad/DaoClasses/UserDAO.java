@@ -82,7 +82,8 @@ public class UserDAO {
 		return status;
 	}
 
-	/********* DEFINICIJA METODE ****************************/
+	/********* DEFINICIJA METODE 
+	 * @return ****************************/
 	public void insertUser(User user) {
 		Connection con = null;
 		PreparedStatement pstm = null;
@@ -104,7 +105,7 @@ public class UserDAO {
 			pstm.setString(6, user.getPassword());
 			pstm.setString(7, user.getCreateDate().toString());
 			pstm.setString(8, user.getNickName());
-
+		
 			pstm.execute();
 
 		} catch (SQLException e) {
@@ -116,7 +117,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		// VRACANJE REZULTATA AKO METODA VRACA REZULTAT
-
+      
 	}
 
 	/********************** DEFINICIJA METODE *******************/
@@ -410,7 +411,7 @@ public class UserDAO {
 		
 	}
 	
-	public void updateUserPass(String Password, int UserID){
+	public void updateUserPass(User user){
 		Connection con = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
@@ -422,8 +423,8 @@ public class UserDAO {
 			pstm = con.prepareStatement(UPDATEUSERPASS);
 
 			// DOPUNJAVANJE SQL STRINGA, SVAKI ? SE MORA PODESITI FirstName = ?, LastName = ?, Sex = ?, Email = ?
-			pstm.setString(1, Password);
-			pstm.setInt(2, UserID);
+			pstm.setString(1, user.getPassword());
+			pstm.setInt(2, user.getUserID());
 			
 			pstm.execute();
 

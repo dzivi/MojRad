@@ -1,15 +1,22 @@
 package org.ivan.MojRad.Resources;
 
+import java.net.URI;
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.MatrixParam;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 import org.ivan.MojRad.DaoClasses.UserDAO;
 import org.ivan.MojRad.Service.UserService;
@@ -36,6 +43,15 @@ public class UserResources {
 		return uServ.getUser(UserID);
 	}
 	
+	@GET
+	@Path("/{email}/{pass}")
+	public User getUser(@PathParam("email") String email, @PathParam("pass") String password){
+	 
+		return usDao.getUser(email, password);
+	}
+	
+	
+	
 	@DELETE
 	@Path("/{UserID}")
 	public void deleteUser(@PathParam("UserID") int UserID){
@@ -44,9 +60,14 @@ public class UserResources {
 	
 	
 	@POST
-	public void addUser(User user){
+	public  void   addUser(User user){
 		usDao.insertUser(user);
-		
+	}
+	
+	@PUT
+	@Path("/{userID}")
+	public void updatePass(@PathParam("userID") int userID,User user){
+		usDao.updateUserPass(user);
 	}
 
 }
