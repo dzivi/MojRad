@@ -1,0 +1,27 @@
+
+<div class="form-group">
+        <input type="text" class="form-control" id="search" placeholder="Search users" ng-model = "search"/>
+
+</div>
+
+<table class="table table-striped table-hover">
+    <tbody>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Level ID</th>
+        <th>Profile picture</th>
+        <th>User ID</th>  
+      </tr>
+        
+      <tr ng-repeat = "user in users | filter:search" ng-click="eddeluser(user.userID)">
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.levelID}}</td>
+          <td><img ng-src="{{user.profilePicture}}" height="60" width="60"/></td>
+          <td>{{user.userID}}</td>
+      </tr>    
+    
+    
+    </tbody>
+</table>

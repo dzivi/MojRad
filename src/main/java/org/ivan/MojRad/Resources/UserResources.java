@@ -64,9 +64,10 @@ public class UserResources {
 		usDao.insertUser(user);
 	}
 	
+	
 	@PUT
-	@Path("/{userID}")
-	public void updatePass(@PathParam("userID") int userID,User user){
+	@Path("/{UserID}")
+	public void updatePass(@PathParam("UserID") int UserID,User user){
 		usDao.updateUserPass(user);
 	}
 

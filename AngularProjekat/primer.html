@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app = "userApp">
+    <head>
+    
+        <title>Projekat</title>
+        <script  src="Angular/angular.min.js"></script>
+        <script src="Angular/bootstrap.min.js"></script>
+        <script src="Angular/route.js"></script>
+        <link rel="stylesheet" href="Angular/bootstrap.css"/>
+        <link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css"/>
+        <script src="js/model/userApp.js"></script>
+        <script src="js/controllers/userListController..js"></script>
+        <script src="js/controllers/eddelController.js"></script>
+    
+    </head>
+    
+    <body ng-controller = "userListController">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Svi korisnici</h1>
+                </div>
+            
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div ng-view></div>
+                </div>
+            
+            </div>
+        
+        </div>
+    
+    
+    
+    </body>
+
+
+
+
+
+
+</html>
