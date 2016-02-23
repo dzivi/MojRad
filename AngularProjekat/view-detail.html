@@ -1,0 +1,38 @@
+<div class="form-group">
+    <label for="txtFname">First Name:</label>
+    <input type="text" id="txtFname" class="form-control" ng-model = "vm.user1.firstName"/>
+</div>
+
+<div class="form-group">
+    <label for="txtLname">Last Name:</label>
+    <input type="text" id="txtLname" class="form-control" ng-model = "vm.user1.lastName"/>
+</div>
+
+<div class="form-group">
+    <label for="cboLevel">Lavel ID:</label>
+    
+    <select name="cboLevel" id="cboLevel" class="form-control" ng-model = "vm.user1.levelID">
+       <option value="1">1</option>
+       <option value="2">2</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="cboProfilePicture">Profile Picture:</label>
+    
+    <img ng-src="{{vm.user1.profilePicture}}" height="60" width="60"/>
+
+</div>
+
+<div class="form-group">
+    <label for="id">User ID:</label>
+    <input type="number" id="id" class="form-control" ng-model = "vm.user1.userID"/>
+</div>
+   
+ <div class="form-group">
+    <button class="btn btn-primary" ng-click="vm.save()">Save</button>
+    <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-click="vm.delete()">Delete</button>
+   <!-- <button class="btn btn-primary" ng-click="vm.edit()">Edit</button>-->
+
+</div>

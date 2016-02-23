@@ -160,6 +160,7 @@ public class User {
 		FirstName = firstName;
 		LastName = lastName;
 		ProfilePicture = profilePicture;
+		
 	}
 
 }

@@ -10,22 +10,23 @@
         <th>User ID</th>  
       </tr>
         
-      <tr ng-repeat = "user in users | filter:search">
-          <td>{{user.firstName}}</td>
-          <td>{{user.lastName}}</td>
-          <td>{{user.levelID}}</td>
-          <td><img ng-src="{{user.profilePicture}}" height="60" width="60"/></td>
-          <td>{{user.userID}}</td>
+      <tr>
+          <td>{{vm.user1.firstName}}</td>
+          <td>{{vm.user1.lastName}}</td>
+          <td>{{vm.user1.levelID}}</td>
+          <td><img ng-src="{{vm.user1.profilePicture}}" height="60" width="60"/></td>
+          <td>{{vm.user1.userID}}</td>
       </tr>    
     
     
     </tbody>
 </table>
     
-    <div>
-    <button class="btn btn-primary" ng-click="save()">Save</button>
-    <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
-    <button class="btn btn-primary" ng-click="delete()">Delete</button>
+ <div>
+   <!-- <button class="btn btn-primary" ng-click="vm.save()">Save</button>-->
+    <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
+    <!--<button class="btn btn-primary" ng-click="vm.delete()">Delete</button>-->
+    <button class="btn btn-primary" ng-click="vm.edit()">Edit</button>
 
 </div>
 

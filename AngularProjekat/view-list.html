@@ -14,7 +14,7 @@
         <th>User ID</th>  
       </tr>
         
-      <tr ng-repeat = "user in users | filter:search" ng-click="eddeluser(user.userID)">
+      <tr ng-repeat = "user in vm.users | filter:search" ng-click="vm.eddeluser(user.userID)">
           <td>{{user.firstName}}</td>
           <td>{{user.lastName}}</td>
           <td>{{user.levelID}}</td>
@@ -25,3 +25,4 @@
     
     </tbody>
 </table>
+

@@ -1,17 +1,27 @@
-app.controller('eddelController', ["$scope", "$location", "userService", "$routeParams" function($scope, $location, userService, $routeParams){
- 
-    $scope.cancel = function(){
-      $location.path("/users");  
+(function(){
+angular
+    .module('userApp')
+    .controller('eddelController', eddelController);
+eddelController.$inject = ["$location", "userService", "$routeParams"];
+
+function eddelController($location, userService, $routeParams){
+    var vm = this;
+    
+    vm.cancel = cancel;
+   
+    function cancel(){
+    $location.path("/users");  
     };
     
+    userService.userOne($routeParams.userId)
+      .then(function(data){
+         vm.user1 = data;
+          
+      });
+    };
+    
+    
+    
    
-        userService.nesto($routeParams.userId).then(function(data){
-                                   $scope.user = data;
-                                   }, function(error){
-                                   console.log(error);
-                                   });
     
-    
-    
-    
-}]);
+})();

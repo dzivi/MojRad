@@ -28,7 +28,7 @@ public class UserDAO {
 	private static String UPDATEONLINESTATUS = "UPDATE users SET OnlineStatus = ? WHERE UserID = ?;";
 	private static String UPDATELASTACTIVITY = "UPDATE users SET LastActivity = CURRENT_TIMESTAMP WHERE UserID= ?";
 	private static String UPDATEUSER = "UPDATE users SET FirstName = ?, LastName = ?, Sex = ?, Email = ?  WHERE UserID = ?;";
-	private static String GETALLUSERS = "SELECT UserID,FirstName,LastName, ProfilePicture FROM users ORDER BY FirstName;";
+	private static String GETALLUSERS = "SELECT UserID,FirstName,LastName, LevelID, ProfilePicture FROM users ORDER BY FirstName;";
 	private static String DELETEUSERBYID = "DELETE FROM users WHERE UserID = ?";
 	private static String UPDATEUSERPASS = "UPDATE users SET Password = ? WHERE UserID = ?;";
 	private static String UPDATEUSERPROFILEPIC = "UPDATE users SET ProfilePicture = ? WHERE UserID = ?;";
@@ -495,6 +495,7 @@ public class UserDAO {
 				user.setUserID(rs.getInt("UserID"));
 				user.setFirstName(rs.getString("FirstName"));
 				user.setLastName(rs.getString("LastName"));
+				user.setLevelID(rs.getInt("LevelID"));
 				user.setProfilePicture(rs.getString("ProfilePicture"));
 				// DODAVANJE INSTANCE U LISTU AKO METODA VRACA LISTU, AKO NE VRACA ONDA NE TREBA 
 				users.add(user);

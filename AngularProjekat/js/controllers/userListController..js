@@ -1,10 +1,17 @@
-app.controller('userListController', ["$scope", "$http", "$location", function ($scope, $http, $location) {
-    $http.get('http://localhost:8080/MojRad/webapi/users/').success(function (data) {
-        $scope.users = data;
+angular
+    .module('userApp')
+    .controller('userListController',userListController);
+    userListController. $inject = ["$http", "$location"];
+function userListController($http, $location){
+    var vm = this;
+    
+     $http.get('http://localhost:8080/MojRad/webapi/users/').success(function (data) {
+        vm.users = data;
     });
     
-    $scope.eddeluser = function(x){
+    vm.eddeluser = function(x){
       $location.path("/users/" + x);
     };
     
-} ]);
+    
+};
