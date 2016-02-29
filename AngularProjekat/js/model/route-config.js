@@ -15,13 +15,12 @@ function config ($routeProvider){
        controllerAs: "vm"
 
    })
-   
-    .when("/users/edit", {
+   .when("/users/edit/:userId",{
        templateUrl:"view-detail.html",
-       controller:"editController",
+       controller:"eddelController",
        controllerAs: "vm"
-
-   })
+         
+         })
 
    .otherwise({
       redirectTo:"/users" 

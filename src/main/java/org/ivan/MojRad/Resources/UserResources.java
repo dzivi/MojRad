@@ -66,9 +66,8 @@ public class UserResources {
 	
 	
 	@PUT
-	@Path("/{UserID}")
-	public void updatePass(@PathParam("UserID") int UserID,User user){
-		usDao.updateUserPass(user);
+	public void updateUser(User user){
+		usDao.updateUser(user);
 	}
 
 }

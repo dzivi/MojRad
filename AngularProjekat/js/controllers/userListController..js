@@ -1,3 +1,4 @@
+(function(){
 angular
     .module('userApp')
     .controller('userListController',userListController);
@@ -13,5 +14,8 @@ function userListController($http, $location){
       $location.path("/users/" + x);
     };
     
+  
     
-};
+ };
+    
+})();

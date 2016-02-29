@@ -380,7 +380,7 @@ public class UserDAO {
 	}
 	
 	
-	public void updateUser(int UserID, String FirstName, String LastName, String Sex, String Email){
+	public void updateUser(User user){
 		Connection con = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
@@ -392,11 +392,11 @@ public class UserDAO {
 			pstm = con.prepareStatement(UPDATEUSER);
 
 			// DOPUNJAVANJE SQL STRINGA, SVAKI ? SE MORA PODESITI FirstName = ?, LastName = ?, Sex = ?, Email = ?
-			pstm.setString(1, FirstName);
-			pstm.setString(2, LastName);
-			pstm.setString(3, Sex);
-			pstm.setString(4, Email);
-			pstm.setInt(5, UserID);
+			pstm.setString(1, user.getFirstName());
+			pstm.setString(2, user.getLastName());
+			pstm.setInt(3, user.getLevelID());
+			pstm.setString(4, user.getProfilePicture());
+			pstm.setInt(5, user.getUserID());
 			pstm.execute();
 
 

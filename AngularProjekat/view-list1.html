@@ -11,11 +11,11 @@
       </tr>
         
       <tr>
-          <td>{{vm.user1.firstName}}</td>
-          <td>{{vm.user1.lastName}}</td>
-          <td>{{vm.user1.levelID}}</td>
-          <td><img ng-src="{{vm.user1.profilePicture}}" height="60" width="60"/></td>
-          <td>{{vm.user1.userID}}</td>
+          <td>{{vm.user.firstName}}</td>
+          <td>{{vm.user.lastName}}</td>
+          <td>{{vm.user.levelID}}</td>
+          <td><img ng-src="{{vm.user.profilePicture}}" height="60" width="60"/></td>
+          <td>{{vm.user.userID}}</td>
       </tr>    
     
     
@@ -25,7 +25,7 @@
  <div>
    <!-- <button class="btn btn-primary" ng-click="vm.save()">Save</button>-->
     <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
-    <!--<button class="btn btn-primary" ng-click="vm.delete()">Delete</button>-->
+    <button class="btn btn-primary" ng-click="vm.delete()">Delete</button>
     <button class="btn btn-primary" ng-click="vm.edit()">Edit</button>
 
 </div>
