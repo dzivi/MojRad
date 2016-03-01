@@ -21,6 +21,12 @@ function config ($routeProvider){
        controllerAs: "vm"
          
          })
+   .when("/add/users/",{
+       templateUrl:"view.html",
+       controller:"addController",
+       controllerAs:"vm"
+         
+         })
 
    .otherwise({
       redirectTo:"/users" 

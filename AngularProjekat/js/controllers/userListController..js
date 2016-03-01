@@ -10,11 +10,13 @@ function userListController($http, $location){
         vm.users = data;
     });
     
-    vm.eddeluser = function(x){
-      $location.path("/users/" + x);
+    vm.eddeluser = function(userId){
+      $location.path("/users/" + userId);
     };
     
-  
+     vm.addUser = function(){
+      $location.path("/add/users/")  
+    };
     
  };
     

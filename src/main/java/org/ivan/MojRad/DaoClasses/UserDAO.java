@@ -19,7 +19,7 @@ public class UserDAO {
 	private DataSource ds;
 
 	// DEFINICIJA KONEKCIONIH STRINGOVA
-	private static String INSERTUSER = "INSERT INTO users(FirstName,LastName,Birdthday,Sex,Email,Password,CreateDate,NickName) VALUES(?,?,?,?,?,?,?,?);";
+	private static String INSERTUSER = "INSERT INTO users(FirstName,LastName,Birdthday,Sex,Email,Password,NickName) VALUES(?,?,?,?,?,?,?);";
 	private static String GETUSERBYUSERANDPASS = "SELECT * FROM users WHERE Email = ? AND Password = ?;";
 	private static String USEREXISTS= "SELECT COUNT(`UserID`) AS BrojKorisnika FROM users WHERE Email = ? AND Password = ?;";
 	private static String SEARCHUSER = "SELECT * FROM users WHERE CONCAT(FirstName,LastName) LIKE ? OR CONCAT(LastName,FirstName) LIKE ? OR LastName LIKE ? OR FirstName LIKE ?;";
@@ -103,8 +103,8 @@ public class UserDAO {
 			pstm.setString(4, user.getSex());
 			pstm.setString(5, user.getEmail());
 			pstm.setString(6, user.getPassword());
-			pstm.setString(7, user.getCreateDate().toString());
-			pstm.setString(8, user.getNickName());
+			//pstm.setString(7, user.getCreateDate().toString());
+			pstm.setString(7, user.getNickName());
 		
 			pstm.execute();
 

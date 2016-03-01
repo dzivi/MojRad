@@ -1,4 +1,4 @@
-(function(){
+/*(function(){
 angular
     .module('userApp')
     .controller('editlController', editController);
@@ -27,13 +27,13 @@ function editController($location, userService, $routeParams){
     
     userService.userOne($routeParams.userId)
       .then(function(data){
-         vm.user1 = data;
+         vm.user = data;
           
       });
     };
     
-    
+  
     
    
     
-})();
+})();*/  

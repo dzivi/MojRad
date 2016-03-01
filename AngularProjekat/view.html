@@ -1,0 +1,62 @@
+<div class="form-group">
+    <label for="txtFname">First Name:</label>
+    <input type="text" id="txtFname" class="form-control" ng-model = "vm.user.firstName"/>
+    
+</div>
+
+<div class="form-group">
+    <label for="txtLname">Last Name:</label>
+    <input type="text" id="txtLname" class="form-control" ng-model = "vm.user.lastName"/>
+</div>
+<!--
+<div class="form-group">
+    <label for="cboLevel">Lavel ID:</label>
+    
+    <select name="cboLevel" id="cboLevel" class="form-control" ng-model = "vm.user.levelID">
+       <option value="1">1</option>
+       <option value="2">2</option>
+    </select>
+</div>
+-->
+
+<div class="form-group">
+    <label for="cboSex">Sex:</label>
+    
+    <select name="cboSex" id="cboSex" class="form-control" ng-model = "vm.user.sex">
+    
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+
+</div>
+<form name="en">
+<div class="form-group" >
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="aen" class="form-control" ng-model = "vm.user.email" required  />
+    <span ng-show="en.aen.$invalid">Pogresno!</span>
+</div>
+    </form>
+
+<div class="form-group">
+    <label for="pass">Password:</label>
+    <input type="text" id="pass" class="form-control" ng-model = "vm.user.password"/>
+</div>
+
+<div class="form-group">
+    <label for="bday">Birdthday:</label>
+    <input type="text" id="bday" class="form-control" ng-model = "vm.user.birdthday"/>
+</div>
+
+
+<div class="form-group">
+    <label for="nn">Nick Name:</label>
+    <input type="text" id="nn" class="form-control" ng-model = "vm.user.nickName"/>
+</div>
+
+ <div class="form-group">
+    <button class="btn btn-primary" ng-click="vm.save()">Save</button>
+    <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
+   <!-- <button class="btn btn-primary" ng-click="vm.delete()">Delete</button>-->
+   <!-- <button class="btn btn-primary" ng-click="vm.edit()">Edit</button>-->
+
+</div>

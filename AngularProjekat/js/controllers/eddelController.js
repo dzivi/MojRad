@@ -26,7 +26,7 @@ function eddelController($location, userService, $routeParams){
     userService.userDelete($routeParams.userId)
       .then(function(data){
          vm.user = data;
-          
+            $location.path("/users");  
       });
     };
     
@@ -39,7 +39,7 @@ function eddelController($location, userService, $routeParams){
     
     
     function save(){
-        userService.userEdit(vm.user1)
+        userService.userEdit(vm.user)
         .then(function(data){
           vm.user = data; 
               $location.path("/users");  

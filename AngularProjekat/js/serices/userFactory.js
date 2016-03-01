@@ -9,11 +9,11 @@ function userService($http) {
   return {
       userOne: userOne,
       userDelete: userDelete,
-      userEdit: userEdit
-      
+      userEdit: userEdit,
+      userAdd: userAdd
     
   };  
-    
+   
     function userOne(userId) {
         return $http.get('http://localhost:8080/MojRad/webapi/users/' + userId)
         .then(getComplete)
@@ -51,6 +51,20 @@ function userService($http) {
         function getFailed() {
           console.log("Greska")  
         } ;
+    };
+    
+    function userAdd(data){
+        return $http.post('http://localhost:8080/MojRad/webapi/users/', data)
+        .then(getComplete)
+        .catch(getFailed);
+        
+        function getComplete(response){
+            return response.data;
+        };
+        
+        function getFailed(){
+          console.log("Greska")
+        };
     };
     
 
