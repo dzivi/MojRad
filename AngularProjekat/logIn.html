@@ -1,0 +1,30 @@
+<div>
+<form role="form" name="form1"> 
+    <div>
+       <h1 >Log In</h1>
+    </div>
+                
+
+    <div class="form-group">
+        <label for="logInEmail">Email:</label>
+       <input type="text" placeholder="Enter name" class="form-control" required ng-model = data.email />
+        
+    </div>
+    
+    <div class="form-group">
+        <label for="logInPassword">Password:</label>
+        <input type="password" placeholder="Password" id="logInPassword" class="form-control" required ng-model = data.password />
+    </div>
+    
+    <div>
+       <button class="btn btn-primary" ng-disabled="form1.$invalid" ng-click="vm.logIn(data)">Log In</button>
+    
+    </div>
+    
+    
+    <p>{{vm.message}}</p>
+
+
+
+</form>
+</div>

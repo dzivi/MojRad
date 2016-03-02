@@ -19,7 +19,7 @@ function eddelController($location, userService, $routeParams){
     };
    
     function cancel(){
-    $location.path("/users");  
+    $location.path("/");  
     };
     
     function delet() {    

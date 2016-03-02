@@ -3,19 +3,22 @@ angular
     .module('userApp')
     .factory('userService', userService);
 
-userService.$inject = ['$http'];
+userService.$inject = ['$http','$location', '$routeParams'];
     
-function userService($http) {
+function userService($http,$location, $routeParams ) {
+    var vm = this;
   return {
       userOne: userOne,
       userDelete: userDelete,
       userEdit: userEdit,
-      userAdd: userAdd
+      userAdd: userAdd,
+      userLogin: userLogin
+     
     
   };  
    
-    function userOne(userId) {
-        return $http.get('http://localhost:8080/MojRad/webapi/users/' + userId)
+    function userOne(data) {
+        return $http.get('http://localhost:8080/MojRad/webapi/users/' + data)
         .then(getComplete)
         .catch(getFailed);
         
@@ -54,7 +57,7 @@ function userService($http) {
     };
     
     function userAdd(data){
-        return $http.post('http://localhost:8080/MojRad/webapi/users/', data)
+        return $http.post('http://localhost:8080/MojRad/webapi/users/add', data)
         .then(getComplete)
         .catch(getFailed);
         
@@ -65,6 +68,31 @@ function userService($http) {
         function getFailed(){
           console.log("Greska")
         };
+    };
+    
+    function userLogin(data){
+        console.log(data);
+      return $http.post('http://localhost:8080/MojRad/webapi/users',data)
+        .then(getComplete)
+        .catch(getFailed);
+        
+        function getComplete(response){
+            console.log (response.data)
+         if (response.data == "Greska") {
+             vm.message = "Not found user";
+             return vm.message;
+            
+              
+         }else {
+             
+              
+             $location.path("/users/"+ response.data );
+         }
+        };
+        
+       function getFailed(){
+        console.log("Greska")
+       };
     };
     
 

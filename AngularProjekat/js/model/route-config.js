@@ -4,6 +4,12 @@ angular
 
 function config ($routeProvider){
    $routeProvider
+    .when("/",{
+       templateUrl:"logIn.html",
+       controller:"logInController",
+       controllerAs:"vm"
+         
+         })
     .when("/users",{
        templateUrl:"view-list.html",
        controller:"userListController",
@@ -27,9 +33,12 @@ function config ($routeProvider){
        controllerAs:"vm"
          
          })
+    
+
+
 
    .otherwise({
-      redirectTo:"/users" 
+      redirectTo:"/" 
    });
 
 };

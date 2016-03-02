@@ -46,7 +46,7 @@ public class UserDAO {
 	}
 
 	/*************** check if user exists ************************/
-	public int existUser(String email, String password) {
+	public boolean existUser(String email, String password) {
 		Connection con = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
@@ -67,6 +67,8 @@ public class UserDAO {
 
 			if(rs.next()){
 				status = rs.getInt("BrojKorisnika");
+				
+				return true;
 			}
 
 			// ****KRAJ OBRADE ResultSet-a
@@ -79,7 +81,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		// VRACANJE REZULTATA AKO METODA VRACA REZULTAT
-		return status;
+		return false;
 	}
 
 	/********* DEFINICIJA METODE 
@@ -141,7 +143,7 @@ public class UserDAO {
 			// ****POCETAK AKO UPIT VRACA REZULTAT TREBA SLEDECI DEO
 			rs = pstm.getResultSet();
 
-			while (rs.next()) { // if UMESTO while AKO UPIT VRACA JEDAN REZULTAT
+			if (rs.next()) { // if UMESTO while AKO UPIT VRACA JEDAN REZULTAT
 				// KREIRANJE INSTANCE KLASE PREKO PODRAZUMEVANOG KONSTRUKTORA
 				user = new User();
 				// SET-OVANJE SVIH ATRIBUTA KLASE SA ODGOVARAJUCIM VREDNOSTIMA
@@ -162,8 +164,9 @@ public class UserDAO {
 				user.setHash(rs.getString("Hash"));
 				// DODAVANJE INSTANCE U LISTU AKO METODA VRACA LISTU, AKO NE
 				// VRACA ONDA NE TREBA
-
+				return user;
 			}
+			
 			// ****KRAJ OBRADE ResultSet-a
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -174,7 +177,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		// VRACANJE REZULTATA AKO METODA VRACA REZULTAT
-		return user;
+		return null;
 	}
 	
 	

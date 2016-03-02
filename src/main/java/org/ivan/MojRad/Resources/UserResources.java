@@ -21,6 +21,7 @@ import javax.ws.rs.core.UriInfo;
 import org.ivan.MojRad.DaoClasses.UserDAO;
 import org.ivan.MojRad.Service.UserService;
 import org.ivan.MojRad.classes.User;
+import org.ivan.MojRad.classes.userCredentials;;
 
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
@@ -43,11 +44,18 @@ public class UserResources {
 		return uServ.getUser(UserID);
 	}
 	
-	@GET
-	@Path("/{email}/{pass}")
-	public User getUser(@PathParam("email") String email, @PathParam("pass") String password){
-	 
-		return usDao.getUser(email, password);
+	@POST
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String getUser(userCredentials usercredentials){
+		if (usDao.getUser(usercredentials.getEmail(), usercredentials.getPassword())!= null) {
+			
+			return  String.valueOf(usDao.getUser(usercredentials.getEmail(), usercredentials.getPassword()).getUserID()) ;
+		}
+		
+	return "Greska";
+			
+	
 	}
 	
 	
@@ -60,6 +68,7 @@ public class UserResources {
 	
 	
 	@POST
+	@Path("/add")
 	public  void   addUser(User user){
 		usDao.insertUser(user);
 	}
