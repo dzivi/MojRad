@@ -11,8 +11,8 @@
         vm.logIn = logIn;
         vm.message = " ";
         
-        function logIn(data){
-          userService.userLogin(data)
+        function logIn(user){
+          userService.userLogin(user)
               .then(function(data){
           vm.message = data;
               return vm.message;

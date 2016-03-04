@@ -3,9 +3,9 @@ angular
     .module('userApp')
     .factory('userService', userService);
 
-userService.$inject = ['$http','$location', '$routeParams'];
+userService.$inject = ['$http','$location', '$routeParams', '$rootScope'];
     
-function userService($http,$location, $routeParams ) {
+function userService($http,$location, $routeParams, $rootScope ) {
     var vm = this;
   return {
       userOne: userOne,
@@ -79,13 +79,14 @@ function userService($http,$location, $routeParams ) {
         function getComplete(response){
             console.log (response.data)
          if (response.data == "Greska") {
+             alert('Wrong email or password');
              vm.message = "Not found user";
              return vm.message;
             
               
          }else {
              
-              
+              $rootScope.loggedIn = true;
              $location.path("/users/"+ response.data );
          }
         };

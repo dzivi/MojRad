@@ -16,6 +16,13 @@ function config ($routeProvider){
        controllerAs: "vm"
    })
    .when("/users/:userId", {
+       resolve:{
+           "check": function($location, $rootScope){
+               if(!$rootScope.loggedIn){
+                   $location.path("/");
+               }
+           }
+       },
        templateUrl:"view-list1.html",
        controller:"eddelController",
        controllerAs: "vm"
@@ -33,10 +40,6 @@ function config ($routeProvider){
        controllerAs:"vm"
          
          })
-    
-
-
-
    .otherwise({
       redirectTo:"/" 
    });
