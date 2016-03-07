@@ -2,13 +2,14 @@
 angular
     .module('userApp')
     .controller('eddelController', eddelController);
-eddelController.$inject = ["$location", "userService", "$routeParams"];
+eddelController.$inject = ["$location", "userService", "$routeParams", "LogInService"];
 
-function eddelController($location, userService, $routeParams){
+function eddelController($location, userService, $routeParams, LogInService){
     var vm = this;
     
-    
     vm.cancel = cancel;
+    
+    vm.logout = logout;
     
     vm.delete = delet;
     
@@ -17,10 +18,17 @@ function eddelController($location, userService, $routeParams){
     vm.edit = function(userId){
       $location.path("/users/edit/" + $routeParams.userId)  
     };
-   
+    
     function cancel(){
-    $location.path("/");  
+      $location.path("/users/"  + $routeParams.userId);  
     };
+   
+    function logout(){
+        LogInService.logout()
+             
+        };
+    
+    
     
     function delet() {    
     userService.userDelete($routeParams.userId)

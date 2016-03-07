@@ -18,7 +18,7 @@ function config ($routeProvider){
    .when("/users/:userId", {
        resolve:{
            "check": function($location, $rootScope){
-               if(!$rootScope.loggedIn){
+               if(!$rootScope.loggedIn && !$rootScope.islogged){
                    $location.path("/");
                }
            }

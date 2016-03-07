@@ -17,9 +17,12 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 import org.ivan.MojRad.DaoClasses.UserDAO;
 import org.ivan.MojRad.Service.UserService;
+import org.ivan.MojRad.classes.Token;
 import org.ivan.MojRad.classes.User;
 import org.ivan.MojRad.classes.userCredentials;;
 
@@ -45,16 +48,20 @@ public class UserResources {
 	}
 	
 	@POST
-	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String getUser(userCredentials usercredentials){
+	public Token getUser(userCredentials usercredentials){
 		if (usDao.getUser(usercredentials.getEmail(), usercredentials.getPassword())!= null) {
-			
-			return  String.valueOf(usDao.getUser(usercredentials.getEmail(), usercredentials.getPassword()).getUserID()) ;
-		}
+			Token t = new Token(Jwts.builder()
+					.setSubject("usercredentials.getEmail()")
+					.signWith(SignatureAlgorithm.HS512, "dzivi")
+					.compact(), String.valueOf(usDao.getUser(usercredentials.getEmail(), usercredentials.getPassword()).getUserID()) );
 		
-	return "Greska";
-			
+			return t;
+		}else{
+
+	return null;
+		}
 	
 	}
 	

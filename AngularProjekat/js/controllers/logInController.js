@@ -3,16 +3,16 @@
     .module("userApp")
     .controller("logInController", logInController);
     
-    logInController.$inject = ["$location", "userService"];
+    logInController.$inject = ["$location", "LogInService"];
     
-    function logInController($location, userService){
+    function logInController($location, LogInService){
       var vm = this;
         
         vm.logIn = logIn;
         vm.message = " ";
         
         function logIn(user){
-          userService.userLogin(user)
+          LogInService.logIn(user)
               .then(function(data){
           vm.message = data;
               return vm.message;

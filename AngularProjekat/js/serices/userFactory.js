@@ -3,16 +3,16 @@ angular
     .module('userApp')
     .factory('userService', userService);
 
-userService.$inject = ['$http','$location', '$routeParams', '$rootScope'];
+userService.$inject = ['$http','$location', '$routeParams'];
     
-function userService($http,$location, $routeParams, $rootScope ) {
+function userService($http,$location, $routeParams, $rootScope, sessonFactory ) {
     var vm = this;
   return {
       userOne: userOne,
       userDelete: userDelete,
       userEdit: userEdit,
-      userAdd: userAdd,
-      userLogin: userLogin
+      userAdd: userAdd
+     
      
     
   };  
@@ -70,31 +70,7 @@ function userService($http,$location, $routeParams, $rootScope ) {
         };
     };
     
-    function userLogin(data){
-        console.log(data);
-      return $http.post('http://localhost:8080/MojRad/webapi/users',data)
-        .then(getComplete)
-        .catch(getFailed);
-        
-        function getComplete(response){
-            console.log (response.data)
-         if (response.data == "Greska") {
-             alert('Wrong email or password');
-             vm.message = "Not found user";
-             return vm.message;
-            
-              
-         }else {
-             
-              $rootScope.loggedIn = true;
-             $location.path("/users/"+ response.data );
-         }
-        };
-        
-       function getFailed(){
-        console.log("Greska")
-       };
-    };
+  
     
 
 } ;
