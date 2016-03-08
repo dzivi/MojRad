@@ -14,10 +14,7 @@ function userListController($http, $location){
       $location.path("/users/" + userId);
     };
     
-     vm.addUser = function(){
-      $location.path("/add/users/")  
-    };
-    
+
  };
     
 })();

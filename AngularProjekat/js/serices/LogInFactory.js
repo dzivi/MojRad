@@ -31,7 +31,7 @@
               
          }else { 
              sessonFactory.set('token', response.data.ID);
-             $rootScope.loggedIn = true;
+           //  $rootScope.loggedIn = true;
              $location.path("/users/"+ response.data.ID );
          }
         };
@@ -46,14 +46,13 @@
         };
         
         function islogged(){
-            sessonFactory.get('token');
-            $rootScope.islogged = false;
-            $location.path("/");
-           /* if(sessonFactory.get('token')){
+         
+            if(sessonFactory.get('token')){
                 return true;
             }else{
                 return false;
-            }*/
+                
+            }
         };
 };
 })();

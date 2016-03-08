@@ -17,12 +17,12 @@
           userService.userAdd(vm.user)
           .then(function(data){
              vm.user = data;
-          $location.path("/users");
+          $location.path("/login");
           });
         };
         
         function cancel(){
-             $location.path("/users");
+             $location.path("/login");
         };
     };
     

@@ -4,7 +4,8 @@ angular
 
 function config ($routeProvider){
    $routeProvider
-    .when("/",{
+  
+    .when("/login",{
        templateUrl:"logIn.html",
        controller:"logInController",
        controllerAs:"vm"
@@ -16,13 +17,6 @@ function config ($routeProvider){
        controllerAs: "vm"
    })
    .when("/users/:userId", {
-       resolve:{
-           "check": function($location, $rootScope){
-               if(!$rootScope.loggedIn && !$rootScope.islogged){
-                   $location.path("/");
-               }
-           }
-       },
        templateUrl:"view-list1.html",
        controller:"eddelController",
        controllerAs: "vm"
@@ -41,7 +35,7 @@ function config ($routeProvider){
          
          })
    .otherwise({
-      redirectTo:"/" 
+      redirectTo:"/login" 
    });
 
 };

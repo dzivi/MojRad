@@ -19,5 +19,10 @@
         });
                   
     };
+             vm.addUser = function(){
+      $location.path("/add/users/")  
+    };
+    
+        
     };
 })();

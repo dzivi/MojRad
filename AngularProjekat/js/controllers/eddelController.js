@@ -50,7 +50,7 @@ function eddelController($location, userService, $routeParams, LogInService){
         userService.userEdit(vm.user)
         .then(function(data){
           vm.user = data; 
-              $location.path("/users");  
+              $location.path("/users/" + $routeParams.userId);   
      
     });
     
