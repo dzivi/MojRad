@@ -1,35 +1,87 @@
-<div>
-<form role="form" name="form1"> 
-    <div>
-       <h1 >Log In</h1>
-    </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #4d79ff;">
+                <div class="col-xs-4">
+                    <div class="container-fluid">
+                        <div class="navbar-header col-xs-2">
+                            <button style="color:white;" class="btn btn-link  navbar-brand" ng-click="vm.home()">Flezbook</button>
+
+                        </div>
+                        <div class="col-xs-2"></div>
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                      <form role="form" name="form1">
+                    <div class="col-xs-3">
+
+                        <div>
+                            <input type="text" placeholder="Enter email" class="form-control" required ng-model=user.email />
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-xs-3">
+                        <div >
+                            
+                            <input type="password" placeholder="Password" id="logInPassword" class="form-control" required ng-model=user.password />
+                        </div>
+
+                    </div>
+                    
+                        <div class="col-xs-1">
+                            <button class="btn btn-primary" ng-disabled="form1.$invalid" ng-click="vm.logIn(user)">Log In</button>
+
+                        </div>
+
+                        <div class="col-xs-1">
+                            <button class="btn btn-primary" ng-click="vm.addUser()">Register</button>
+                        </div>
+
                 
+                    </form>
 
-    <div class="form-group">
-        <label for="logInEmail">Email:</label>
-       <input type="text" placeholder="Enter email" class="form-control" required ng-model = user.email />
-        
-    </div>
-    
-    <div class="form-group">
-        <label for="logInPassword">Password:</label>
-        <input type="password" placeholder="Password" id="logInPassword" class="form-control" required ng-model = user.password />
-    </div>
-    
-    <div>
-       <button class="btn btn-primary" ng-disabled="form1.$invalid" ng-click="vm.logIn(user)">Log In</button>
-    
+                </div>
+            </nav>
+
+        </div>
     </div>
 
-    
-    
-    <p>{{vm.message}}</p>
+    <div style="padding-top: 50px;">
+        <form role="form" name="form1">
+            <div class="login">
+                <h1>Log In</h1>
+            </div>
+
+            <!--
+            <div class="form-group">
+                <label for="logInEmail">Email:</label>
+                <input type="text" placeholder="Enter email" class="form-control" required ng-model=u ser.email />
+
+            </div>
+
+            <div class="form-group">
+                <label for="logInPassword">Password:</label>
+                <input type="password" placeholder="Password" id="logInPassword" class="form-control" required ng-model=u ser.password />
+            </div>
+-->
+
+            <div>
+                <button class="btn btn-primary" ng-disabled="form1.$invalid" ng-click="vm.logIn(user)">Log In</button>
+
+            </div>
 
 
 
-</form>
-        <div>
-     <button class="btn btn-primary" ng-click="vm.addUser()">Register</button>
+            <p>{{vm.message}}</p>
 
-</div>
-</div>
+
+
+
+            <div>
+                <button class="btn btn-primary" ng-click="vm.addUser()">Register</button>
+            </div>
+
+        </form>
+    </div>

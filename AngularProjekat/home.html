@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #4d79ff;">
+                <div class="col-xs-8">
+                    <div class="container-fluid">
+                        <div class="navbar-header col-xs-2">
+                            <button style="color:white;" class="btn btn-link  navbar-brand" ng-click="vm.home()">Flezbook</button>
+
+                        </div>
+                        
+                        <div class="col-xs-6">
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="form-group" style="width:390px">
+                                    <input type="text" class="form-control" placeholder="Search" style="width:385px">
+                                </div>
+
+                                <button type="submit" class="btn btn-default">Search</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <ul class="nav navbar-nav">
+
+                        <li>
+                            <a style="color:white;" type="button" class="btn" ng-click="vm.profile()" class="active">{{vm.user.firstName}}</a>
+                        </li>
+                        <li>
+                            <a style="color:white;" type="button" class="btn" ng-click="vm.home()">Home</a>
+                        </li>
+                        <li>
+                            <a style="color:white;" type="button" class="btn" ng-click="vm.messages()">Messages</a>
+                        </li>
+                        <li>
+                            <a style="color:white;" type="button" class="btn" ng-click="vm.requests()">Messages</a>
+                        </li>
+                        <li>
+                            <a style="color:white;" type="button" class="btn" ng-click="vm.logout()">Log Out</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </nav>
+
+        </div>
+    </div>

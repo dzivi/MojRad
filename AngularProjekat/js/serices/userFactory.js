@@ -18,6 +18,7 @@ function userService($http,$location, $routeParams, $rootScope, sessonFactory ) 
   };  
    
     function userOne(data) {
+        console.log(data);
         return $http.get('http://localhost:8080/MojRad/webapi/users/' + data)
         .then(getComplete)
         .catch(getFailed);

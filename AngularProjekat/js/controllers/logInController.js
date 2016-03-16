@@ -20,7 +20,7 @@
                   
     };
              vm.addUser = function(){
-      $location.path("/add/users/")  
+      $location.path("/register")  
     };
     
         

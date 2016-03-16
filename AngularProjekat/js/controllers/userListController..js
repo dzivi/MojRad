@@ -11,7 +11,7 @@ function userListController($http, $location){
     });
     
     vm.eddeluser = function(userId){
-      $location.path("/users/" + userId);
+      $location.path("/profile/" + userId);
     };
     
 

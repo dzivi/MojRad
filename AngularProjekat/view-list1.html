@@ -1,34 +1,169 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #4d79ff;">
+                <div class="col-xs-8">
+                    <div class="container-fluid">
+                        <div class="navbar-header col-xs-2">
+                            <button style="color:white;" class="btn btn-link  navbar-brand" ng-click="vm.home()">Flezbook</button>
 
-<div class="form-group">
-    <table class="table table-striped table-hover">
-    <tbody>
-      <tr>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Level ID</th>
-        <th>Profile picture</th>
-        <th>User ID</th>  
-      </tr>
-        
-      <tr>
-          <td>{{vm.user.firstName}}</td>
-          <td>{{vm.user.lastName}}</td>
-          <td>{{vm.user.levelID}}</td>
-          <td><img ng-src="{{vm.user.profilePicture}}" height="60" width="60"/></td>
-          <td>{{vm.user.userID}}</td>
-      </tr>    
-    
-    
-    </tbody>
-</table>
-    
- <div>
-   <!-- <button class="btn btn-primary" ng-click="vm.save()">Save</button>-->
-    <button class="btn btn-primary" ng-click="vm.logout()">Log Out</button>
-    <button class="btn btn-primary" ng-click="vm.delete()">Delete</button>
-    <button class="btn btn-primary" ng-click="vm.edit()">Edit</button>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="form-group" style="width:390px">
+                                    <input type="text" class="form-control" placeholder="Search" style="width:385px">
+                                </div>
+
+                                <button type="submit" class="btn btn-default">Search</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <ul class="nav navbar-nav">
+
+                        <li>
+                            <a style="color:white;" type="button" class="btn" ng-click="vm.profile()" class="active">{{vm.user.firstName}}</a>
+                        </li>
+                        <li>
+                            <a style="color:white;" type="button" class="btn" ng-click="vm.home()">Home</a>
+                        </li>
+                        <li>
+                            <a style="color:white;" type="button" class="btn" ng-click="vm.messages()">Messages</a>
+                        </li>
+                        <li>
+                            <a style="color:white;" type="button" class="btn" ng-click="vm.requests()">Messages</a>
+                        </li>
+                        <li>
+                            <a style="color:white;" type="button" class="btn" ng-click="vm.logout()">Log Out</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </nav>
+
+        </div>
+    </div>
+
+
+
+    <div class="row" style="color: #262626; padding-top: 50px;">
+        <div class="col-md-12">
+
+            <div class="col-xs-3">
+
+                <img ng-src="{{vm.user.profilePicture}}" height="100" width="100" />
+            </div>
+
+            <div class="col-xs-5">
+                <h1> {{vm.user.firstName}}  {{vm.user.lastName}} </h1>
+            </div>
+
+
+
+            <div class="col-xs-3">
+
+                <h1 id="1">Flezbook</h1>
+
+
+            </div>
+
+            <div class="col-xs-1"></div>
+
+        </div>
+    </div>
+
+    <div class="row" style="background-color: #f5f5f0; color: #262626; padding-top: 50px;">
+
+        <div class="col-md-12">
+
+            <div class="col-xs-1">
+                <!--PRAZAN DEO-->
+            </div>
+
+            <div class="col-xs-2">
+                <ul class="nav nav-pills nav-stacked">
+
+                    <li><a class="btn" ng-click="vm.toggle()">Edit profile</a></li>
+                    <li><a class="btn" ng-click="vm.toggle()">About {{vm.user.firstName}}</a></li>
+                    <li><a class="btn" ng-click="vm.toggle()">{{vm.user.firstName}}'s posts</a></li>
+                    <li><a class="btn" ng-click="vm.toggle()">{{vm.user.firstName}}'s friends</a></li>
+
+                </ul>
+
+
+            </div>
+
+            <div class="col-xs-2">
+                <!--PRAZAN DEO-->
+            </div>
+
+            <div class="col-xs-6">
+                <div ng-hide="vm.nesto">
+                    <div class="row">
+                        <h3 style="text-align: center;">Edit profile</h3>
+                    </div>
+                    <br>
+                    <div class="row" style="border-style: ridge; color:#cce6ff" >
+                        <a style="margin: 70%;">
+                            <div class="form-group">
+                                <label for="txtFname">First Name:</label>
+                                <input type="text" id="txtFname" class="form-control" ng-model="vm.user.firstName" />
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="txtLname">Last Name:</label>
+                                <input type="text" id="txtLname" class="form-control" ng-model="vm.user.lastName" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cboLevel">Lavel ID:</label>
+
+                                <select name="cboLevel" id="cboLevel" class="form-control" ng-model="vm.user.levelID">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cboProfilePicture">Profile Picture:</label>
+
+                                <img ng-src="{{vm.user.profilePicture}}" height="60" width="60" />
+
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="id">User ID:</label>
+                                <input type="number" id="id" class="form-control" ng-model="vm.user.userID" />
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-primary" ng-click="vm.save()">Save</button>
+                                <button class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
+                                <!-- <button class="btn btn-primary" ng-click="vm.delete()">Delete</button>-->
+                                <!-- <button class="btn btn-primary" ng-click="vm.edit()">Edit</button>-->
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-xs-1">
+                <!--PRAZAN DEO-->
+            </div>
+
+        </div>
+
+
+    </div>
 
 </div>
-
-</div>
-

@@ -30,9 +30,12 @@
             
               
          }else { 
-             sessonFactory.set('token', response.data.ID);
+             sessonFactory.set('token', response.data.token);
            //  $rootScope.loggedIn = true;
-             $location.path("/users/"+ response.data.ID );
+             $location.path("/home/" +response.data.ID);
+             
+             //vm.nesto = response.data.ID;
+             //return vm.nesto;
          }
         };
         
@@ -42,7 +45,7 @@
     };
         function logout(){
             sessonFactory.destroy('token');
-          $location.path("/");  
+          $location.path("/login");  
         };
         
         function islogged(){
@@ -51,6 +54,7 @@
                 return true;
             }else{
                 return false;
+                
                 
             }
         };
