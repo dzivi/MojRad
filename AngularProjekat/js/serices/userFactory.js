@@ -19,7 +19,7 @@ function userService($http,$location, $routeParams, $rootScope, sessonFactory ) 
    
     function userOne(data) {
         console.log(data);
-        return $http.get('http://localhost:8080/MojRad/webapi/users/' + data)
+        return $http.get('http://localhost:8086/MojRad/webapi/users/' + data)
         .then(getComplete)
         .catch(getFailed);
         
@@ -32,7 +32,7 @@ function userService($http,$location, $routeParams, $rootScope, sessonFactory ) 
     } ;
     
     function userDelete(data){
-      return $http.delete('http://localhost:8080/MojRad/webapi/users/' + data)
+      return $http.delete('http://localhost:8086/MojRad/webapi/users/' + data)
       .then(getComplete)
         .catch(getFailed);
         
@@ -45,7 +45,7 @@ function userService($http,$location, $routeParams, $rootScope, sessonFactory ) 
     };
     
     function userEdit(data){
-      return $http.put('http://localhost:8080/MojRad/webapi/users/',data)
+      return $http.put('http://localhost:8086/MojRad/webapi/users/',data)
        .then(getComplete)
         .catch(getFailed);
         
@@ -58,16 +58,22 @@ function userService($http,$location, $routeParams, $rootScope, sessonFactory ) 
     };
     
     function userAdd(data){
-        return $http.post('http://localhost:8080/MojRad/webapi/users/add', data)
+        return $http.post('http://localhost:8086/MojRad/webapi/users/add', data)
         .then(getComplete)
         .catch(getFailed);
         
-        function getComplete(response){
-            return response.data;
+        function getComplete(){
+            
+            vm.poruka = "Successful Registration!!";
+             return vm.poruka;
+            
         };
         
         function getFailed(){
-          console.log("Greska")
+            console.log("Greska")
+             vm.opa = "Registration Failed!!";
+             return vm.opa;
+          
         };
     };
     

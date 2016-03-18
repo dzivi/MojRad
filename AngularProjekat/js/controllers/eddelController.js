@@ -22,6 +22,7 @@
         vm.save = save;
 
         vm.home = home;
+        
 
         function home() {
             $location.path("/home/" + $routeParams.userId);
@@ -62,6 +63,7 @@
             userService.userEdit(vm.user)
                 .then(function (data) {
                     vm.user = data;
+                
                    
 
                 });

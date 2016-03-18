@@ -17,7 +17,7 @@
         };
           function logIn(data){
         console.log(data);
-      return $http.post('http://localhost:8080/MojRad/webapi/users',data)
+      return $http.post('http://localhost:8086/MojRad/webapi/users',data)
         .then(getComplete)
         .catch(getFailed);
         

@@ -6,7 +6,7 @@ angular
 function userListController($http, $location){
     var vm = this;
     
-     $http.get('http://localhost:8080/MojRad/webapi/users/').success(function (data) {
+     $http.get('http://localhost:8086/MojRad/webapi/users/').success(function (data) {
         vm.users = data;
     });
     

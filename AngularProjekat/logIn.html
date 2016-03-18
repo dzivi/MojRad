@@ -1,7 +1,8 @@
 <div class="container-fluid">
     <div class="row">
+        <!--NAVBAR-->
         <div class="col-xs-12">
-            <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #4d79ff; height:100px;">
+            <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #4d79ff;">
                 <div class="col-xs-4">
                     <div class="container-fluid">
                         <div class="navbar-header col-xs-2">
@@ -15,18 +16,18 @@
 
                 </div>
                 <div class="col-xs-6">
+
                     <form role="form" name="form1" class="navbar-form navbar-right">
-                        <div class="col-xs-2 form-group">
-                            <label>Email</label>
-                            <input type="text" placeholder="Enter email" class="form-control" required ng-model=user.email />
-                        </div>
-                        <div class="col-xs-2 form-grup">
-                             <label>Password</label>
-                            <input type="password" placeholder="Password" id="logInPassword" class="form-control" required ng-model=user.password />
-                        </div>
-                        <div class="col-xs-2 form-group">
-                            <button class="btn btn-primary" ng-disabled="form1.$invalid" ng-click="vm.logIn(user)">Log In</button>
-                        </div>
+
+
+                        <label>Email:</label>
+                        <input type="text" placeholder="Enter email" class="form-control" required ng-model=user.email />
+
+                        <label>Password:</label>
+                        <input type="password" placeholder="Enter password" class="form-control" id="logInPassword" required ng-model=user.password />
+
+                        <button class="btn btn-primary" ng-disabled="form1.$invalid" ng-click="vm.logIn(user)">Log In</button>
+
                     </form>
 
                 </div>
@@ -36,53 +37,109 @@
     </div>
 
     <div class="row" style="padding-top: 100px;">
+        <!--SVE OSTALO DOLE-->
 
         <div class="col-xs-6">
-            <h2 style="text-align:centar; margin-top: 25%;">Connect with friends and the world around you on Flezbooks.</h2>
-            <br>
-            <img src="images/zfYvmRWJSyz.png" height="120" width="160" style="align:centar" />
+            <!--LEVA POLOVINA-->
+            <div class="row">
+                <div class="col-xs-2">
+                    <!--Prazno-->
+                </div>
+                <div class="col-xs-10">
+                    <h2 style="text-align:centar; margin-top: 10%;">Connect with friends and the world around you on Flezbooks.</h2>
+                </div>
+                <div class="col--xs-2">
+                    <!--PRAZNO-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2">
+                    <!--Prazno-->
+                </div>
+                <div class="col-xs-10">
+                    <img src="images/zfYvmRWJSyz.png" height="500" width="500" style="align:centar" />
+                </div>
+                <div class="col--xs-2">
+                    <!--PRAZNO-->
+                </div>
+            </div>
 
         </div>
 
 
 
         <div class="col-xs-6">
-            <div>
-                <label for="txtFname">First Name:</label>
-                <input type="text" id="txtFname" class="form-control" ng-model="vm.user.firstName" />
+            <!--DESNA POLOVINA-->
+            <div class="row" style="align:centar; padding-top: 80px;">
+                <div class="col-xs-1">
+                    <!--PRAZNO-->
 
-
-                <label for="txtLname">Last Name:</label>
-                <input type="text" id="txtLname" class="form-control" ng-model="vm.user.lastName" />
-
-                <label for="cboSex">Sex:</label>
-
-                <select name="cboSex" id="cboSex" class="form-control" ng-model="vm.user.sex">
-
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="aen" class="form-control" ng-model="vm.user.email" required />
-
-
-                <label for="pass">Password:</label>
-                <input type="text" id="pass" class="form-control" ng-model="vm.user.password" />
+                </div>
 
 
 
-                <label for="bday">Birdthday:</label>
-                <input type="text" id="bday" class="form-control" ng-model="vm.user.birdthday" />
 
-                <label for="nn">Nick Name:</label>
-                <input type="text" id="nn" class="form-control" ng-model="vm.user.nickName" />
+                <div class="col-xs-10" style="border: 1px solid #b3e6ff;">
+
+                    <legend>Register New User</legend>
+
+                    <label for="txtFname">First Name:</label>
+                    <input type="text" id="txtFname" class="form-control" ng-model="vm.user.firstName" />
+
+
+                    <label for="txtLname">Last Name:</label>
+                    <input type="text" id="txtLname" class="form-control" ng-model="vm.user.lastName" />
+
+                    <label for="cboSex">Sex:</label>
+
+                    <select name="cboSex" id="cboSex" class="form-control" ng-model="vm.user.sex">
+
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="aen" class="form-control" ng-model="vm.user.email" required />
+
+
+                    <label for="pass">Password:</label>
+                    <input type="text" id="pass" class="form-control" ng-model="vm.user.password" />
+
+
+
+                    <label for="bday">Birdthday:</label>
+                    <input type="text" id="bday" class="form-control" ng-model="vm.user.birdthday" />
+
+                    <label for="nn">Nick Name:</label>
+                    <input type="text" id="nn" class="form-control" ng-model="vm.user.nickName" />
+                    <br>
+                </div>
+                <div class="col-xs-3">
+                    <!--PRAZNO-->
+
+                </div>
+
+
             </div>
 
-            <button class="btn btn-primary" ng-click="vm.save()">Register</button>
+            <div class="row" style="padding-top: 30px;">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4">
+                    <button style="width:150px" class="btn btn-primary" ng-click="vm.register()">Register</button>
+                    <br>
+                    <br>
 
-            <p>{{vm.message}}</p>
+                    <p>{{vm.message}}</p> <p>{{vm.poruka}}</p> <p>{{vm.opa}}</p>
+
+
+
+                </div>
+                <div class="col-xs-4"></div>
+
+            </div>
+
+
         </div>
 
 

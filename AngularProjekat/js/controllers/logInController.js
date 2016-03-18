@@ -3,23 +3,38 @@
         .module("userApp")
         .controller("logInController", logInController);
 
-    logInController.$inject = ["$location", "LogInService"];
+    logInController.$inject = ["$location", "LogInService", "userService"];
 
-    function logInController($location, LogInService) {
+    function logInController($location, LogInService, userService) {
         var vm = this;
 
+        vm.poruka = " ";
+
+        vm.opa = " ";
+
         vm.logIn = logIn;
-        vm.message = " ";
 
-        vm.save = save;
+        vm.register = register;
 
-        function save() {
+        function register() {
             userService.userAdd(vm.user)
                 .then(function (data) {
-                    vm.user = data;
-                    $location.path("/login");
+                    // vm.user = data;
+                    //  $location.path("/login");
+                    vm.user.firstName = " ";
+                    vm.user.lastName = " ";
+                    vm.user.email = " ";
+                    vm.user.sex = " ";
+                    vm.user.password = " ";
+                    vm.user.birdthday = " ";
+                    vm.user.nickName = " ";
+
+                    vm.poruka = data;
+                    return vm.poruka;
+
                 });
         };
+
 
         function logIn(user) {
             LogInService.logIn(user)
