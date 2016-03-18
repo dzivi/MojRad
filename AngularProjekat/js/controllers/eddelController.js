@@ -26,10 +26,10 @@
         function home() {
             $location.path("/home/" + $routeParams.userId);
         };
-
+       /*
         vm.edit = function (userId) {
             $location.path("/profile/edit/" + $routeParams.userId)
-        };
+        };*/
 
         function cancel() {
             $location.path("/profile/" + $routeParams.userId);
@@ -62,7 +62,7 @@
             userService.userEdit(vm.user)
                 .then(function (data) {
                     vm.user = data;
-                    $location.path("/profile/" + $routeParams.userId);
+                   
 
                 });
 
